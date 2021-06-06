@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
         android:text="@string/textview_startup"
-        android:textColor="#FFFFFF"
+        android:textColor="#000"
         android:textSize="15dp" />
     
 	<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
@@ -29,7 +29,7 @@
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:text="@string/radio_Enable_record"
-			    android:textColor="#FFFFFF" />
+			    android:textColor="#000" />
 	    	
 
 	    	<RadioButton
@@ -37,7 +37,7 @@
 	    	    android:layout_width="wrap_content"
 	    	    android:layout_height="wrap_content"
 	    	    android:text="@string/radio_Disable_record"
-	    	    android:textColor="#FFFFFF" />
+	    	    android:textColor="#000" />
 
 	</RadioGroup>
 </LinearLayout>

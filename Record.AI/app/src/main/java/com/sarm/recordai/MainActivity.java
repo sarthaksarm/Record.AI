@@ -170,7 +170,7 @@ public class MainActivity extends Activity {
 			AlertDialog.Builder builder = new AlertDialog.Builder(
 					com.sarm.recordai.MainActivity.this);
 			builder.setTitle(R.string.about_title)
-					.setMessage(R.string.about_content)
+					.setMessage("Record.AI app")
 					.setPositiveButton(R.string.about_close_button,
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,

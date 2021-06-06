@@ -7,6 +7,7 @@ import android.os.Environment;
 import android.provider.ContactsContract;
 import android.text.format.DateFormat;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -130,24 +131,29 @@ public class FileHelper {
 	public static List<com.sarm.recordai.Model> listDir2(File f, Activity caller) {
 		File[] files = f.listFiles();
 		List<com.sarm.recordai.Model> fileList = new ArrayList<com.sarm.recordai.Model>();
-		for (File file : files) {
-			if (!file.getName().matches(com.sarm.recordai.Constants.FILE_NAME_PATTERN)) {
-				Log.d(com.sarm.recordai.Constants.TAG, String.format(
-						"'%s' didn't match the file name pattern",
-						file.getName()));
-				continue;
+		try {
+			for (File file : files) {
+				if (!file.getName().matches(com.sarm.recordai.Constants.FILE_NAME_PATTERN)) {
+					Log.d(com.sarm.recordai.Constants.TAG, String.format(
+							"'%s' didn't match the file name pattern",
+							file.getName()));
+					continue;
+				}
+
+				com.sarm.recordai.Model mModel = new com.sarm.recordai.Model(file.getName());
+				String phoneNum = mModel.getCallName().substring(16,
+						mModel.getCallName().length() - 4);
+				mModel.setUserNameFromContact(getContactName(phoneNum, caller));
+				fileList.add(mModel);
 			}
 
-			com.sarm.recordai.Model mModel = new com.sarm.recordai.Model(file.getName());
-			String phoneNum = mModel.getCallName().substring(16,
-					mModel.getCallName().length() - 4);
-			mModel.setUserNameFromContact(getContactName(phoneNum, caller));
-			fileList.add(mModel);
+			Collections.sort(fileList);
+			Collections.sort(fileList, Collections.reverseOrder());
 		}
-
-		Collections.sort(fileList);
-		Collections.sort(fileList, Collections.reverseOrder());
-
+		catch(Exception e)
+		{
+			Toast.makeText(caller, "Error", Toast.LENGTH_SHORT).show();
+		}
 		return fileList;
 	}
 
