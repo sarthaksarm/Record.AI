@@ -81,11 +81,12 @@ int maxlen;
 
             if (sequence.length < maxlen) {
                 int i;
-                for (i = 0; i < sequence.length; i++) {
-                    myarr[i] = sequence[i];
-                }
-                for (i = sequence.length; i < maxlen; i++) {
+                int temp = maxlen - sequence.length;
+                for (i = 0; i < temp; i++) {
                     myarr[i] = 0;
+                }
+                for (i = temp; i < maxlen; i++) {
+                    myarr[i] = sequence[i-temp];
                 }
             }
 
