@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".transcriptcall.TranscribeHomeActivity">
+
+    <TextView
+        android:layout_width="332dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="68dp"
+        android:gravity="center"
+        android:text="TRANSCRIPTION"
+        android:fontFamily="serif"
+        android:textSize="18dp" />
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="204dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="242dp"
+        android:background="@color/colorButton"
+        android:fontFamily="serif"
+        android:text="Start Transcription"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="204dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="183dp"
+        android:background="@color/colorButton"
+        android:text="Show Call History"
+        android:fontFamily="serif"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:onClick="showHistory"/>
+
+
+
+
+</RelativeLayout>

@@ -5,7 +5,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PredictActivity">
+    android:background="#000"
+    tools:context=".predictcall.PredictActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Caller's data"
+        android:textColor="#fff"
+        android:textSize="18dp"
+        android:fontFamily="serif"
+        android:id="@+id/callertxt"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Caller's text"
+        android:textSize="17dp"
+        android:textColor="#fff"
+        android:fontFamily="serif"
+        android:id="@+id/calldata_txt"
+        android:layout_marginStart="30dp"
+        />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/restxt"
@@ -14,6 +45,7 @@
         android:text="Result"
         android:layout_centerInParent="true"
         android:textSize="21dp"
+        android:textColor="#fff"
         android:fontFamily="serif"
         />
     <Button
@@ -21,6 +53,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Predict"
+        android:textColor="#fff"
+        android:textSize="20dp"
         android:layout_below="@+id/restxt"
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"

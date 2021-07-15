@@ -1,53 +1,253 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-    <!-- ScrollView
-        android:id="@+id/ScrollView01"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" android:fillViewport="true">
-        
-        <LinearLayout 
-	    android:orientation="vertical"
-	    android:layout_width="fill_parent"
-	    android:layout_height="fill_parent"
-	    -->
-        	<ListView
-            	android:id="@+id/mylist"
-            	android:layout_width="fill_parent"
-            	android:layout_height="fill_parent"
-            	></ListView>
-          <!-- /LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@drawable/bg"
+        android:weightSum="10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-	    
-	    
-    </ScrollView-->
+        <RelativeLayout
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
 
-    <ScrollView
-        android:id="@+id/ScrollView02"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" android:fillViewport="true">
-        
-        <LinearLayout 
-	    android:orientation="vertical"
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    >
-        
-		    <TextView
-		        android:id="@+id/txtNoRecords"
-		        android:layout_width="fill_parent"
-		        android:layout_height="wrap_content"
-		        android:text="@string/no_records_message" >
-		        
-		    </TextView>
-		
-		    
-	    
-	    </LinearLayout>
-    </ScrollView>
+            <TextView
+                android:id="@+id/textGrid"
+                android:text="RECORD.AI"
+                android:textSize="30sp"
+                android:fontFamily="serif"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/recentUpdatetxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Call Details"
+                android:textSize="20sp"
+                android:fontFamily="serif"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/white"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/textGrid"
+                />
+
+        </RelativeLayout>
+
+        <GridLayout
+            android:id="@+id/mainGrid"
+            android:columnCount="2"
+            android:rowCount="3"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false"
+            android:layout_weight="5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="14dp"
+            >
+
+            <!-- Row 1 -->
+
+            <!-- Column 1 -->
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:cardElevation="8dp"
+                android:onClick="recordingscard"
+                app:cardCornerRadius="8dp"
+                >
+
+                <LinearLayout
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:weightSum="2"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <ImageView
+                        android:src="@drawable/record"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="2"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:text="RECORDINGS"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textColor="#fff"
+                        android:fontFamily="serif"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Column 2 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:cardElevation="8dp"
+                android:onClick="notescard"
+                app:cardCornerRadius="8dp"
+                >
+
+                <LinearLayout
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:weightSum="2"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:src="@drawable/speech_to_text"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="2"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:text="TRANSCRIPTION"
+                        android:textAlignment="center"
+                        android:textColor="#fff"
+                        android:textSize="15sp"
+                        android:gravity="center"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- Row 2 -->
+
+            <!-- Column 1 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:cardElevation="8dp"
+                android:onClick="transcribepredictcard"
+                app:cardCornerRadius="8dp"
+                >
+
+                <LinearLayout
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:weightSum="2"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:src="@drawable/ai_result"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="2"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:text="CALL ANALYSIS"
+                        android:textAlignment="gravity"
+                        android:textColor="#fff"
+                        android:fontFamily="serif"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Column 2 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:cardElevation="8dp"
+                android:onClick="aboutcard"
+                app:cardCornerRadius="8dp"
+                >
+
+                <LinearLayout
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:weightSum="2"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:src="@drawable/about"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="2"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:text="ABOUT"
+                        android:textAlignment="center"
+                        android:textColor="#fff"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:fontFamily="serif"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- Row 2 -->
+
+            <!-- Column 1 -->
+
+
+        </GridLayout>
+
+    </LinearLayout>
+
+</ScrollView>
