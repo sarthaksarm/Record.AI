@@ -41,7 +41,7 @@ public class NotesActivity extends AppCompatActivity {
     // Uses Global listview variable
     void listFileContent(Context context) {
         String path = getExternalFilesDir("/").getAbsolutePath() + "/Call_Notes/";
-        Toast.makeText(context, "" + path, Toast.LENGTH_LONG).show();
+
         if (checkPermission()) {
             File dir = new File(path);
             if (dir.exists()) {

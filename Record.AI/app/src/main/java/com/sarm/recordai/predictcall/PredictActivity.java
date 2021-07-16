@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +18,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.sarm.recordai.MainActivity;
 import com.sarm.recordai.R;
 
 import java.io.File;
@@ -86,6 +88,14 @@ public class PredictActivity extends AppCompatActivity {
                 String testtext2 = "good morning";
 
                 //String call_txt = restxt.getText().toString();
+
+                if(call_data.equals(""))
+                {
+                    Toast.makeText(PredictActivity.this, "There is no data to test. Try again.", Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(PredictActivity.this, MainActivity.class);
+                    startActivity(i);
+                    finish();
+                }
 
                 call_data = call_data.toLowerCase().trim();
 
@@ -232,7 +242,7 @@ public class PredictActivity extends AppCompatActivity {
     {
         try {
             String path = getExternalFilesDir("/").getAbsolutePath() +"/Recent_Call";
-            Toast.makeText(context, ""+path, Toast.LENGTH_LONG).show();
+
             // Create the folder.
             File folder = new File(path);
             folder.mkdirs();

@@ -6,13 +6,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000"
+    android:padding="20dp"
     tools:context=".AboutActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="About app"
-        android:textSize="22dp"
+        android:id="@+id/headingtxt"
+        android:text="ABOUT APP"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:fontFamily="serif"
+        >
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/txtview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="The proposed AI-powered mobile app which records the voice
+call, \nidentifies the non-legitimate phone call by classifying
+them precisely as- \nspam,\nfraud,\nthreat, and\nblackmail, \ntaking conversations as
+the input by transcribing the conversations into notes
+along with the audio recording for future references, using Machine Learning, is \nRECORD.AI."
+        android:textSize="20dp"
+        android:gravity="center"
         android:layout_centerInParent="true"
         android:fontFamily="serif"
         android:textColor="#fff"

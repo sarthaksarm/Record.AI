@@ -136,39 +136,70 @@ public class TranscribeMainActivity extends AppCompatActivity {
             public void onResults(Bundle bundle) {
                 //mSpeechRecognizer.stopListening();
                 //getting all the matches
-                ArrayList<String> matches = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
 
-                //displaying the first match
-                if (matches != null){
-                    if(mic  == 0){
-                        //editText2.setText(matches.get(0));
-                        if(!mess.get(mess.size()-1).equals(new Message(matches.get(0),1)))
-                            mess.add(new Message(matches.get(0),1));
+                try{
+                    ArrayList<String> matches = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
 
-                        //1-Calling side (we)
-                        messages.scrollToPosition(mess.size() - 1);
-                        adapter.notifyDataSetChanged();
-                        //Toast.makeText(TranscribeMainActivity.this, "Here-1", Toast.LENGTH_SHORT).show();
-                    }
+                    //displaying the first match
+                    if (matches != null){
+                        if(mic  == 0){
+                            //editText2.setText(matches.get(0));
+                            if(!mess.get(mess.size()-1).equals(new Message(matches.get(0),1)))
+                                mess.add(new Message(matches.get(0),1));
 
-                    else{
-                        //editText.setText(matches.get(0));
-                        if(!mess.get(mess.size()-1).equals(new Message(matches.get(0),2)))
-                        {
-                            mess.add(new Message(matches.get(0),2));
-                            mess_caller.add(matches.get(0));    //added other person's saying.
+                            //1-Calling side (we)
+                            messages.scrollToPosition(mess.size() - 1);
+                            adapter.notifyDataSetChanged();
+                            //Toast.makeText(TranscribeMainActivity.this, "Here-1", Toast.LENGTH_SHORT).show();
                         }
 
-                        //2-caller side (other person)
-                        messages.scrollToPosition(mess.size() - 1);
-                        adapter.notifyDataSetChanged();
-                        //Toast.makeText(TranscribeMainActivity.this, "Here-2", Toast.LENGTH_SHORT).show();
+                        else{
+                            //editText.setText(matches.get(0));
+                            if(!mess.get(mess.size()-1).equals(new Message(matches.get(0),2)))
+                            {
+                                mess.add(new Message(matches.get(0),2));
+                                mess_caller.add(matches.get(0));    //added other person's saying.
+                            }
+
+                            //2-caller side (other person)
+                            messages.scrollToPosition(mess.size() - 1);
+                            adapter.notifyDataSetChanged();
+                            //Toast.makeText(TranscribeMainActivity.this, "Here-2", Toast.LENGTH_SHORT).show();
+
+                        }
 
                     }
-
                 }
-               // mSpeechRecognizer.startListening(mSpeechRecognizerIntent);
-            }
+                catch (Exception e)
+                {
+                        if(mic  == 0){
+                            //editText2.setText(matches.get(0));
+                            if(!mess.get(mess.size()-1).equals(new Message(".",1)))
+                                mess.add(new Message(".",1));
+
+                            //1-Calling side (we)
+                            messages.scrollToPosition(mess.size() - 1);
+                            adapter.notifyDataSetChanged();
+                            //Toast.makeText(TranscribeMainActivity.this, "Here-1", Toast.LENGTH_SHORT).show();
+                        }
+
+                        else{
+                            //editText.setText(matches.get(0));
+                            if(!mess.get(mess.size()-1).equals(new Message(".",2)))
+                            {
+                                mess.add(new Message(".",2));
+                                mess_caller.add(".");    //added other person's saying.
+                            }
+
+                            //2-caller side (other person)
+                            messages.scrollToPosition(mess.size() - 1);
+                            adapter.notifyDataSetChanged();
+                            //Toast.makeText(TranscribeMainActivity.this, "Here-2", Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    }
+                }
 
             @Override
             public void onPartialResults(Bundle bundle) {
@@ -327,7 +358,7 @@ public class TranscribeMainActivity extends AppCompatActivity {
         try {
 
             String path = getExternalFilesDir("/").getAbsolutePath() +"/Call_Notes";
-            Toast.makeText(context, ""+path, Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "File saved at: "+path, Toast.LENGTH_SHORT).show();
             // Create the folder.
             File folder = new File(path);
             folder.mkdirs();

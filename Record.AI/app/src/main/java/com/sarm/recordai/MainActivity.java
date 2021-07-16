@@ -56,7 +56,7 @@ TextView recentUpdatetext;
     }
 
     public String readFromFile(String nameFile) {
-        String aBuffer = "";
+        String aBuffer = "Last Call Identified: ";
         try {
             String path = getExternalFilesDir("/").getAbsolutePath() +"/Recent_Call/"+nameFile;
 
